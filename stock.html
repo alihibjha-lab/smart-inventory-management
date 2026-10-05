@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock - Smart Inventory</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js"></script>
+</head>
+<body>
+
+    <div class="dashboard-layout">
+
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <h2>Smart Inventory</h2>
+            </div>
+
+            <nav class="sidebar-menu">
+                <a href="dashboard.html">Dashboard</a>
+                <a href="products.html">Products</a>
+                <a href="categories.html">Categories</a>
+                <a href="stock.html" class="active">Stock</a>
+                <a href="reports.html">Reports</a>
+                <a href="index.html">Logout</a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+
+            <header class="top-bar">
+                <div>
+                    <h1>Stock Management</h1>
+                    <p>Manage stock in and stock out activities</p>
+                </div>
+            </header>
+
+            <section class="dashboard-cards">
+
+                <div class="dashboard-card">
+                    <h3>Total Stock</h3>
+                    <p class="card-number">320</p>
+                </div>
+
+                <div class="dashboard-card">
+                    <h3>Stock In</h3>
+                    <p class="card-number">200</p>
+                </div>
+
+                <div class="dashboard-card">
+                    <h3>Stock Out</h3>
+                    <p class="card-number">120</p>
+                </div>
+
+                <div class="dashboard-card">
+                    <h3>Low Stock</h3>
+                    <p class="card-number">5</p>
+                </div>
+
+            </section>
+
+            <section class="dashboard-section">
+
+                <div class="section-header">
+                    <h2>Stock Activity</h2>
+                </div>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Product</th>
+                                <th>Type</th>
+                                <th>Quantity</th>
+                                <th>Remarks</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>05 Oct 2026</td>
+                                <td>Laptop</td>
+                                <td>Stock In</td>
+                                <td>10</td>
+                                <td>New purchase</td>
+                            </tr>
+
+                            <tr>
+                                <td>05 Oct 2026</td>
+                                <td>Mouse</td>
+                                <td>Stock Out</td>
+                                <td>5</td>
+                                <td>Sold</td>
+                            </tr>
+
+                            <tr>
+                                <td>04 Oct 2026</td>
+                                <td>Keyboard</td>
+                                <td>Stock In</td>
+                                <td>15</td>
+                                <td>New purchase</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+</body>
+</html>

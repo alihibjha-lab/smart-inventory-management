@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports - Smart Inventory</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js"></script>
+</head>
+<body>
+
+    <div class="dashboard-layout">
+
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <h2>Smart Inventory</h2>
+            </div>
+
+            <nav class="sidebar-menu">
+                <a href="dashboard.html">Dashboard</a>
+                <a href="products.html">Products</a>
+                <a href="categories.html">Categories</a>
+                <a href="stock.html">Stock</a>
+                <a href="reports.html" class="active">Reports</a>
+                <a href="index.html">Logout</a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+
+            <header class="top-bar">
+                <div>
+                    <h1>Reports</h1>
+                    <p>View inventory reports and stock summary</p>
+                </div>
+            </header>
+
+            <section class="dashboard-cards">
+
+                <div class="dashboard-card">
+                    <h3>Total Products</h3>
+                    <p class="card-number">50</p>
+                </div>
+
+                <div class="dashboard-card">
+                    <h3>Total Categories</h3>
+                    <p class="card-number">8</p>
+                </div>
+
+                <div class="dashboard-card">
+                    <h3>Total Stock</h3>
+                    <p class="card-number">320</p>
+                </div>
+
+                <div class="dashboard-card">
+                    <h3>Low Stock Items</h3>
+                    <p class="card-number">5</p>
+                </div>
+
+            </section>
+
+            <section class="dashboard-section">
+
+                <div class="section-header">
+                    <h2>Inventory Summary</h2>
+                </div>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Category</th>
+                                <th>Quantity</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>Laptop</td>
+                                <td>Electronics</td>
+                                <td>10</td>
+                                <td>In Stock</td>
+                            </tr>
+
+                            <tr>
+                                <td>Mouse</td>
+                                <td>Accessories</td>
+                                <td>25</td>
+                                <td>In Stock</td>
+                            </tr>
+
+                            <tr>
+                                <td>Keyboard</td>
+                                <td>Accessories</td>
+                                <td>5</td>
+                                <td>Low Stock</td>
+                            </tr>
+
+                            <tr>
+                                <td>Office Chair</td>
+                                <td>Furniture</td>
+                                <td>12</td>
+                                <td>In Stock</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+</body>
+</html>
