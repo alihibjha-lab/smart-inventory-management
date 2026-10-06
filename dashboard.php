@@ -1,3 +1,6 @@
+<?php
+require_once "php/db.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,11 +31,11 @@
                     Dashboard
                 </a>
 
-                <a href="products.html">
+                <a href="products.php">
                     Products
                 </a>
 
-                <a href="categories.html">
+                <a href="categories.php">
                     Categories
                 </a>
 
@@ -72,25 +75,58 @@
 
                 <div class="dashboard-card">
                     <h3>Total Products</h3>
-                    <p class="card-number">50</p>
+                    <p class="card-number">
+<?php
+
+$result = $conn->query("SELECT COUNT(*) AS total FROM products");
+$row = $result->fetch_assoc();
+
+echo $row["total"];
+
+?>                 </p>
                 </div>
 
 
                 <div class="dashboard-card">
                     <h3>Total Stock</h3>
-                    <p class="card-number">320</p>
+                    <p class="card-number">
+<?php
+
+$result = $conn->query("SELECT COALESCE(SUM(quantity), 0) AS total FROM products");
+$row = $result->fetch_assoc();
+
+echo $row["total"];
+
+?></p>
                 </div>
 
 
                 <div class="dashboard-card">
                     <h3>Low Stock</h3>
-                    <p class="card-number">5</p>
+                    <p class="card-number">
+<?php
+
+$result = $conn->query("SELECT COUNT(*) AS total FROM products WHERE quantity <= 5");
+$row = $result->fetch_assoc();
+
+echo $row["total"];
+
+?></p>
                 </div>
 
 
                 <div class="dashboard-card">
                     <h3>Categories</h3>
-                    <p class="card-number">8</p>
+                    <p class="card-number">
+<?php
+
+$result = $conn->query("SELECT COUNT(*) AS total FROM categories");
+$row = $result->fetch_assoc();
+
+echo $row["total"];
+
+?>
+                    </p>
                 </div>
 
             </section>

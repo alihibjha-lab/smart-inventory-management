@@ -1,3 +1,6 @@
+<?php
+require_once "php/db.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +21,7 @@
 
             <nav class="sidebar-menu">
                 <a href="dashboard.html">Dashboard</a>
-                <a href="products.html" class="active">Products</a>
+                <a href="products.php" class="active">Products</a>
                 <a href="categories.html">Categories</a>
                 <a href="stock.html">Stock</a>
                 <a href="reports.html">Reports</a>
@@ -40,7 +43,7 @@
                 <div class="section-header">
                     <h2>Product List</h2>
                 </div>
-
+<a href="php/products/add.php">Add Product</a>
                 <div class="table-container">
                     <table>
                         <thead>
@@ -55,32 +58,38 @@
                         </thead>
 
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Laptop</td>
-                                <td>Electronics</td>
-                                <td>₹50,000</td>
-                                <td>10</td>
-                                <td>In Stock</td>
-                            </tr>
+<?php
 
-                            <tr>
-                                <td>2</td>
-                                <td>Mouse</td>
-                                <td>Accessories</td>
-                                <td>₹800</td>
-                                <td>25</td>
-                                <td>In Stock</td>
-                            </tr>
+$sql = "SELECT products.id, products.name, categories.name AS category,
+               products.price, products.quantity, products.status
+        FROM products
+        LEFT JOIN categories ON products.category_id = categories.id
+        ORDER BY products.id DESC";
 
-                            <tr>
-                                <td>3</td>
-                                <td>Keyboard</td>
-                                <td>Accessories</td>
-                                <td>₹1,500</td>
-                                <td>5</td>
-                                <td>Low Stock</td>
-                            </tr>
+$result = $conn->query($sql);
+
+if ($result && $result->num_rows > 0) {
+
+    while ($row = $result->fetch_assoc()) {
+        echo "<tr>";
+        echo "<td>" . $row["id"] . "</td>";
+        echo "<td>" . htmlspecialchars($row["name"]) . "</td>";
+        echo "<td>" . htmlspecialchars($row["category"] ?? "No Category") . "</td>";
+        echo "<td>₹" . number_format($row["price"], 2) . "</td>";
+        echo "<td>" . $row["quantity"] . "</td>";
+        echo "<td>" . htmlspecialchars($row["status"]) . "</td>";
+        echo "</tr>";
+    }
+
+} else {
+
+    echo "<tr>";
+    echo "<td colspan='6'>No products found.</td>";
+    echo "</tr>";
+
+}
+
+?>
                         </tbody>
                     </table>
                 </div>

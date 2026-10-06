@@ -1,3 +1,6 @@
+<?php
+require_once "php/db.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +22,7 @@
             <nav class="sidebar-menu">
                 <a href="dashboard.html">Dashboard</a>
                 <a href="products.html">Products</a>
-                <a href="categories.html" class="active">Categories</a>
+                <a href="categories.php" class="active">Categories</a>
                 <a href="stock.html">Stock</a>
                 <a href="reports.html">Reports</a>
                 <a href="index.html">Logout</a>
@@ -39,6 +42,7 @@
 
                 <div class="section-header">
                     <h2>Category List</h2>
+                    <a href="php/categories/add.php">Add Category</a>
                 </div>
 
                 <div class="table-container">
@@ -53,33 +57,34 @@
                         </thead>
 
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Electronics</td>
-                                <td>Electronic devices and equipment</td>
-                                <td>20</td>
-                            </tr>
+                           <?php
 
-                            <tr>
-                                <td>2</td>
-                                <td>Accessories</td>
-                                <td>Computer and mobile accessories</td>
-                                <td>15</td>
-                            </tr>
+$sql = "SELECT id, name, description, created_at
+        FROM categories
+        ORDER BY id DESC";
 
-                            <tr>
-                                <td>3</td>
-                                <td>Stationery</td>
-                                <td>Office and writing supplies</td>
-                                <td>10</td>
-                            </tr>
+$result = $conn->query($sql);
 
-                            <tr>
-                                <td>4</td>
-                                <td>Furniture</td>
-                                <td>Office furniture and equipment</td>
-                                <td>5</td>
-                            </tr>
+if ($result && $result->num_rows > 0) {
+
+    while ($row = $result->fetch_assoc()) {
+        echo "<tr>";
+        echo "<td>" . $row["id"] . "</td>";
+        echo "<td>" . htmlspecialchars($row["name"]) . "</td>";
+        echo "<td>" . htmlspecialchars($row["description"]) . "</td>";
+        echo "<td>" . $row["created_at"] . "</td>";
+        echo "</tr>";
+    }
+
+} else {
+
+    echo "<tr>";
+    echo "<td colspan='4'>No categories found.</td>";
+    echo "</tr>";
+
+}
+
+?>
                         </tbody>
                     </table>
                 </div>
